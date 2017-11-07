@@ -1,3 +1,4 @@
+window.AudioContext = window.AudioContext || window.webkitAudioContext || undefined;
 var audioContext = new AudioContext();
 
 function drawBuffer( width, height, context, buffer ) {
