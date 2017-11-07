@@ -3,7 +3,7 @@ var audioContext = new AudioContext();
 function drawBuffer( width, height, context, buffer ) {
     var data = buffer.getChannelData( 0 );
     document.getElementById('duration').innerHTML = buffer.duration + " * " + audioContext.sampleRate + " = " + buffer.getChannelData(0).length  ; 
-    var step = Math.ceil( data.length / width );
+    var step = 0.5 ; 
     var amp = height / 2;
     for(var i=0; i < width; i++){
         var min = 1.0;
@@ -15,7 +15,7 @@ function drawBuffer( width, height, context, buffer ) {
             if (datum > max)
                 max = datum;
         }
-        context.fillRect(i,(1+min)*amp,1,Math.max(1,(max-min)*amp));
+        context.fillRect(i,(1+min)*amp,2,Math.max(1,(max-min)*amp));
     }
 }
 
